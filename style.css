@@ -1,0 +1,107 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: "MotivaSans";
+    src: url("/assets/MotivaSans.woff");
+}
+
+:root {
+    --dark-background: #111111;
+    --light-background: #ffffff;
+    --border: #212227;
+    --accent: #7266ee;
+    --accent-2: #ee6666;
+    --glow: rgba(114, 102, 238, 0.25);
+    --glow-2: rgba(238, 102, 102, 0.25);
+    --neutral: #5f616c;
+    --text: #ffffff;
+    font-family: 'MotivaSans', sans-serif;
+
+}
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--dark-background);
+    color: var(--text);
+}
+
+
+.num,
+.op,
+.fun {
+    background-color: var(--neutral);
+    color: var(--text);
+    border: 2px solid var(--border);
+    font-size: 22px;
+    border-radius: 8px;
+    width: 3em;
+    height: 3em;
+    font-family: 'MotivaSans', sans-serif;
+    transition: 0.25s ease-in-out;
+
+}
+
+.fun {
+    background-color: var(--accent-2);
+    width: 6em;
+}
+
+
+
+.num:hover,
+.op:hover {
+    background-color: var(--glow);
+    cursor: pointer;
+}
+
+.fun:hover {
+    background-color: var(--glow-2);
+    cursor: pointer;
+}
+
+.screen {
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--neutral);
+    color: var(--text);
+    border: 2px solid var(--border);
+    font-size: 22px;
+    border-radius: 8px;
+    width: 14em;
+    height: 5em;
+    font-family: 'MotivaSans', sans-serif;
+    transition: 0.25s ease-in-out;
+}
+
+.screen p {
+    padding: 0.5em;
+}
+
+footer {
+    font-size: 1.25em;
+    margin-top: 5vh;
+    margin: 5vh 0 5vh 0;
+}
+
+footer a {
+    margin: 0 1em;
+    text-decoration: none;
+}
+
+footer img {
+    height: 1em;
+    transition: transform 0.3s ease-in-out;
+
+}
+
+footer img:hover {
+    transform: rotate(360deg) scale(1.2);
+}
