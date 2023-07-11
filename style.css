@@ -86,19 +86,31 @@ body {
 .pt {
 	grid-column: span 1;
 }
-.op,
-.pt {
+.op {
 	background-color: var(--accent-2);
 }
+.eq,
 .fun {
 	background-color: var(--accent-3);
+}
+.op,
+.fun {
+	font-weight: 700;
+}
+.zero {
 	grid-column: span 2;
 }
-
+.eq {
+	grid-row: span 2;
+}
 .num:hover,
 .op:hover,
 .pt:hover {
 	background-color: var(--glow);
+	cursor: pointer;
+}
+.eq:hover {
+	background-color: var(--glow-3);
 	cursor: pointer;
 }
 

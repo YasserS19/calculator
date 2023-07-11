@@ -1,9 +1,14 @@
 const numbers = document.querySelectorAll(".num")
 const operators = document.querySelectorAll(".op")
 const funs = document.querySelectorAll(".fun")
+const pt = document.querySelector(".pt")
 let result = document.querySelector(".res")
 let expression = document.querySelector(".exp")
+let eqPressed = false
 
+operators.forEach((op) => {
+	op.disabled = true
+})
 numbers.forEach((num) => {
 	num.addEventListener("click", () => {
 		result.textContent += num.textContent
@@ -12,7 +17,10 @@ numbers.forEach((num) => {
 		})
 	})
 })
-let eqPressed = false
+pt.addEventListener("click", () => {
+	result.textContent += "."
+	pt.disabled = true
+})
 operators.forEach((op) => {
 	op.addEventListener("click", () => {
 		operators.forEach((op) => {
@@ -26,6 +34,10 @@ operators.forEach((op) => {
 			operators.forEach((op) => {
 				if (op.textContent !== "=") op.disabled = false
 			})
+			numbers.forEach((num) => {
+				num.disabled = true
+			})
+			pt.disabled = true
 			eqPressed = true
 		} else {
 			if (eqPressed === true) {
@@ -36,6 +48,10 @@ operators.forEach((op) => {
 				expression.textContent += `${result.textContent} ${op.textContent} `
 				result.textContent = ""
 			}
+			numbers.forEach((num) => {
+				num.disabled = false
+			})
+			pt.disabled = false
 		}
 	})
 })
@@ -60,6 +76,7 @@ funs.forEach((fun) => {
 		}
 	})
 })
+
 // function evalute(op, a, b) {
 // 	a = Number(a)
 // 	b = Number(b)

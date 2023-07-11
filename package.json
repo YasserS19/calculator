@@ -4,9 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --open",
+    "dev": "vite",
+    "open": "vite --open",
     "build": "vite build",
-    "preview": "vite preview --open"
+    "preview": "vite preview"
   },
   "devDependencies": {
     "vite": "^4.4.3"
