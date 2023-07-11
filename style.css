@@ -70,7 +70,8 @@ body {
 
 .num,
 .op,
-.fun {
+.fun,
+.pt {
 	background-color: var(--accent);
 	border: 2px solid var(--border);
 	border-radius: 8px;
@@ -81,10 +82,12 @@ body {
 }
 
 .num,
-.op {
+.op,
+.pt {
 	grid-column: span 1;
 }
-.op {
+.op,
+.pt {
 	background-color: var(--accent-2);
 }
 .fun {
@@ -93,7 +96,8 @@ body {
 }
 
 .num:hover,
-.op:hover {
+.op:hover,
+.pt:hover {
 	background-color: var(--glow);
 	cursor: pointer;
 }

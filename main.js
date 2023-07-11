@@ -1,26 +1,42 @@
 const numbers = document.querySelectorAll(".num")
 const operators = document.querySelectorAll(".op")
 const funs = document.querySelectorAll(".fun")
-const result = document.querySelector(".res")
-const expression = document.querySelector(".exp")
+let result = document.querySelector(".res")
+let expression = document.querySelector(".exp")
 
 numbers.forEach((num) => {
 	num.addEventListener("click", () => {
-		expression.textContent += num.textContent
+		result.textContent += num.textContent
 		operators.forEach((op) => {
 			op.disabled = false
 		})
 	})
 })
+let eqPressed = false
 operators.forEach((op) => {
 	op.addEventListener("click", () => {
 		operators.forEach((op) => {
 			op.disabled = true
 		})
 		if (op.textContent === "=") {
-			result.textContent = expression.textContent
+			expression.textContent += `${result.textContent} ${op.textContent} `
+			console.log(`On = : ${expression.textContent}`)
+			result.textContent = eval(replaceOp(expression.textContent))
+			console.log(`= Result : ${result.textContent}`)
+			operators.forEach((op) => {
+				if (op.textContent !== "=") op.disabled = false
+			})
+			eqPressed = true
+		} else {
+			if (eqPressed === true) {
+				expression.textContent = `${result.textContent} ${op.textContent} `
+				result.textContent = ""
+				eqPressed = false
+			} else {
+				expression.textContent += `${result.textContent} ${op.textContent} `
+				result.textContent = ""
+			}
 		}
-		expression.textContent += ` ${op.textContent} `
 	})
 })
 
@@ -28,32 +44,43 @@ funs.forEach((fun) => {
 	fun.addEventListener("click", () => {
 		switch (fun.textContent) {
 			case "DEL":
-				result.textContent = expression.textContent.slice(0, -1)
+				result.textContent = result.textContent.slice(0, -1)
 				break
 			case "AC":
 				expression.textContent = ""
 				result.textContent = ""
+				operators.forEach((op) => {
+					op.disabled = false
+				})
+				numbers.forEach((num) => {
+					num.disabled = false
+				})
 			default:
 				break
 		}
-		console.log(fun.textContent)
 	})
 })
-function evalute(op, a, b) {
-	a = Number(a)
-	b = Number(b)
-	console.log(a, b)
-	switch (op) {
-		case "+":
-			return a + b
-		case "-":
-			return a - b
-		case "x":
-			return a * b
-		case "÷":
-			if (b === 0) return null
-			else return a / b
-		default:
-			return null
-	}
+// function evalute(op, a, b) {
+// 	a = Number(a)
+// 	b = Number(b)
+// 	switch (op) {
+// 		case "+":
+// 			return a + b
+// 		case "-":
+// 			return a - b
+// 		case "x":
+// 			return a * b
+// 		case "":
+// 			if (b === 0) return null
+// 			else return a / b
+// 		default:
+// 			return null
+// 	}
+// }
+function replaceOp(exp) {
+	exp = exp.replace("x", "*")
+	exp = exp.replace("÷", "/")
+	exp = exp.replace(" =", "")
+	console.log(exp)
+	return exp
 }
