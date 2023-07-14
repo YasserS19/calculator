@@ -38,9 +38,9 @@ body {
 	border: 2px solid var(--border);
 	border-radius: 8px;
 	display: grid;
-	gap: 1em;
+	gap: 1rem;
 	grid-template-columns: repeat(4, 1fr);
-	padding: 1em;
+	padding: 1rem;
 	grid-template-rows: repeat(6, 1fr);
 	height: 90vh;
 	width: 640px;
@@ -56,10 +56,9 @@ body {
 	flex-direction: column;
 	font-family: "MotivaSans", sans-serif;
 	grid-column: span 4;
-	padding: 1em;
-	/* height: 164px; */
+	padding: 1rem;
+	height: 8rem;
 	justify-content: space-between;
-
 	transition: 0.25s ease-in-out;
 }
 .exp {
@@ -78,7 +77,7 @@ body {
 	border-radius: 8px;
 	color: var(--text);
 	font-family: "MotivaSans", sans-serif;
-	font-size: 2em;
+	font-size: 2rem;
 	transition: 0.25s ease-in-out;
 }
 
@@ -124,18 +123,18 @@ body {
 footer {
 	align-items: center;
 	display: flex;
-	font-size: 1.25em;
+	font-size: 1.25rem;
 	height: 5vh;
 	justify-content: center;
 }
 
 footer a {
-	margin: 0 1em;
+	margin: 0 1rem;
 	text-decoration: none;
 }
 
 footer img {
-	height: 1em;
+	height: 1rem;
 	transition: transform 0.3s ease-in-out;
 }
 
