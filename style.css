@@ -1,6 +1,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 }
 
 @font-face {
@@ -47,7 +48,7 @@ body {
 }
 
 .screen {
-	align-items: end;
+	align-items: flex-end;
 	background-color: var(--neutral);
 	border: 2px solid var(--border);
 	border-radius: 8px;
@@ -61,11 +62,13 @@ body {
 	justify-content: space-between;
 	transition: 0.25s ease-in-out;
 }
+
 .exp {
-	font-size: 36px;
+	font-size: 2rem;
 }
+
 .res {
-	font-size: 42px;
+	font-size: 3rem;
 }
 
 .num,
@@ -86,36 +89,38 @@ body {
 .pt {
 	grid-column: span 1;
 }
+
 .op {
 	background-color: var(--accent-2);
 }
+
 .eq,
 .fun {
 	background-color: var(--accent-3);
 }
+
 .op,
 .fun {
 	font-weight: 700;
 }
+
 .zero {
 	grid-column: span 2;
 }
+
 .eq {
 	grid-row: span 2;
 }
+
 .num:hover,
 .op:hover,
 .pt:hover {
 	background-color: var(--glow);
 	cursor: pointer;
 }
-.eq:hover {
-	background-color: var(--glow-3);
-	cursor: pointer;
-}
 
+.eq:hover,
 .fun:hover {
-	background-color: var(--glow-3);
 	background-color: var(--glow-3);
 	cursor: pointer;
 }
